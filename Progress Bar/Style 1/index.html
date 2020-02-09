@@ -16,55 +16,13 @@
           <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
         </div>
         <button id="uploadBtn" type="button" class="btn btn-primary">Start Upload</button>
+        <button id="clearUploadBtn" type="button" class="btn btn-danger">Clear Upload</button>
         </div>
       </div>
     <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-    <script>
-        const uploadBtn = document.getElementById("uploadBtn");
-        const uploadEndpoint = "";
-        uploadBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            sampleProgress();
-
-            //make an ajax call
-            //attach an eventListener to ajax call
-            //listen for total and loaded values
-            //compute progress value and apply CSS
-            
-        });
-        
-
-        function sampleProgress(){
-            let uploadBtn = $('#uploadBtn');
-            uploadBtn.attr("disabled", "disabled");
-            let progressNumber = 0;
-            let progressBarFill = $('.progress-bar');
-            let progressBarCount = $('.progress-count');
-
-            let progressStatus = setInterval(function(){
-        progressNumber++;
-            let progressValue = progressNumber * 13;
-            if(progressValue > 100) progressValue = 100;
-            
-            progressBarFill.removeClass('bg-success');
-            progressBarFill.addClass('progress-bar-striped');
-            progressBarFill.css('width', progressValue + '%');
-            progressBarFill.attr('aria-valuenow', progressValue);
-            progressBarCount.text(progressValue + '%');
-            
-            if(progressValue >= 100){
-                progressBarFill.removeClass('progress-bar-striped');
-                progressBarFill.addClass('bg-success');
-                progressBarCount.text('Upload Complete');
-                uploadBtn.removeAttr("disabled", "disabled");
-                clearInterval(progressStatus);
-            }
-            }, 1000);
-        }
-        
-    </script>
+  <script src="./script.js"></script>
 </body>
 </html>
